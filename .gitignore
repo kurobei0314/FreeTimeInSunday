@@ -1,0 +1,13 @@
+FreeTimeInSunday/.vscode/settings.json
+FreeTimeInSunday/Library/*
+FreeTimeInSunday/Temp/*
+FreeTimeInSunday/Logs/*
+FreeTimeInSunday/Packages/*
+FreeTimeInSunday/UserSettings/*
+FreeTimeInSunday/Assembly-CSharp.csproj
+FreeTimeInSunday/Assembly-CSharp-firstpass.csproj
+FreeTimeInSunday/FreeTimeInSunday.sln
+FreeTimeInSunday/Assets/Plugins/*
+FreeTimeInSunday/ProjectSettings/*
+FreeTimeInSunday/Assets/Settings/*
+.DS_Store
