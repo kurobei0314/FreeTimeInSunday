@@ -6,11 +6,18 @@ using R3.Triggers;
 public class PlayerView : MonoBehaviour
 {
     private Vector3 _walkAxis;
+
     public void Start()
     {
         Observable.EveryUpdate().Subscribe(_ => {
             this.transform.Translate(_walkAxis * Time.deltaTime);
         }).AddTo(this);
+        
+        this.gameObject.OnTriggerStay2DAsObservable().Subscribe(_ => 
+        {
+            Debug.Log("wa----i");
+        }).AddTo(this);
+
     }
 
     #region InputSystem
