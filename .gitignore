@@ -10,4 +10,5 @@ FreeTimeInSunday/FreeTimeInSunday.sln
 FreeTimeInSunday/Assets/Plugins/*
 FreeTimeInSunday/ProjectSettings/*
 FreeTimeInSunday/Assets/Settings/*
+FreeTimeInSunday/Assets/Library/*
 .DS_Store

@@ -12,5 +12,265 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a8e522e177124aa08e13d759f12a06c, type: 3}
   m_Name: EventVODataStore
   m_EditorClassIdentifier: 
-  loadingServerUrl: 
-  items: []
+  loadingServerUrl: https://docs.google.com/spreadsheets/d/1xrTu9AM4XFGkQO0ozg_d9Yv082trVuTxpvKjVGl09Bw/edit#gid=0#gid=0
+  items:
+  - id: 1
+    type: 1
+    times: 1
+    description: 
+    result_description: 
+    hp_consumption: 
+    condition_event_type1: 0
+    condition_event_time1: 0
+    condition_event_type2: 0
+    condition_event_time2: 0
+  - id: 2
+    type: 1
+    times: 2
+    description: 
+    result_description: 
+    hp_consumption: 
+    condition_event_type1: 0
+    condition_event_time1: 0
+    condition_event_type2: 0
+    condition_event_time2: 0
+  - id: 3
+    type: 1
+    times: 3
+    description: 
+    result_description: 
+    hp_consumption: 
+    condition_event_type1: 0
+    condition_event_time1: 0
+    condition_event_type2: 0
+    condition_event_time2: 0
+  - id: 4
+    type: 1
+    times: 1
+    description: 
+    result_description: 
+    hp_consumption: 
+    condition_event_type1: 0
+    condition_event_time1: 0
+    condition_event_type2: 0
+    condition_event_time2: 0
+  - id: 5
+    type: 1
+    times: 2
+    description: 
+    result_description: 
+    hp_consumption: 
+    condition_event_type1: 0
+    condition_event_time1: 0
+    condition_event_type2: 0
+    condition_event_time2: 0
+  - id: 6
+    type: 1
+    times: 3
+    description: 
+    result_description: 
+    hp_consumption: 
+    condition_event_type1: 0
+    condition_event_time1: 0
+    condition_event_type2: 0
+    condition_event_time2: 0
+  - id: 7
+    type: 1
+    times: 1
+    description: 
+    result_description: 
+    hp_consumption: 
+    condition_event_type1: 0
+    condition_event_time1: 0
+    condition_event_type2: 0
+    condition_event_time2: 0
+  - id: 8
+    type: 1
+    times: 2
+    description: 
+    result_description: 
+    hp_consumption: 
+    condition_event_type1: 0
+    condition_event_time1: 0
+    condition_event_type2: 0
+    condition_event_time2: 0
+  - id: 9
+    type: 1
+    times: 3
+    description: 
+    result_description: 
+    hp_consumption: 
+    condition_event_type1: 0
+    condition_event_time1: 0
+    condition_event_type2: 0
+    condition_event_time2: 0
+  - id: 10
+    type: 1
+    times: 1
+    description: 
+    result_description: 
+    hp_consumption: 
+    condition_event_type1: 0
+    condition_event_time1: 0
+    condition_event_type2: 0
+    condition_event_time2: 0
+  - id: 11
+    type: 1
+    times: 2
+    description: 
+    result_description: 
+    hp_consumption: 
+    condition_event_type1: 0
+    condition_event_time1: 0
+    condition_event_type2: 0
+    condition_event_time2: 0
+  - id: 12
+    type: 1
+    times: 3
+    description: 
+    result_description: 
+    hp_consumption: 
+    condition_event_type1: 0
+    condition_event_time1: 0
+    condition_event_type2: 0
+    condition_event_time2: 0
+  - id: 13
+    type: 1
+    times: 1
+    description: 
+    result_description: 
+    hp_consumption: 
+    condition_event_type1: 0
+    condition_event_time1: 0
+    condition_event_type2: 0
+    condition_event_time2: 0
+  - id: 14
+    type: 1
+    times: 2
+    description: 
+    result_description: 
+    hp_consumption: 
+    condition_event_type1: 0
+    condition_event_time1: 0
+    condition_event_type2: 0
+    condition_event_time2: 0
+  - id: 15
+    type: 1
+    times: 3
+    description: 
+    result_description: 
+    hp_consumption: 
+    condition_event_type1: 0
+    condition_event_time1: 0
+    condition_event_type2: 0
+    condition_event_time2: 0
+  - id: 16
+    type: 1
+    times: 1
+    description: 
+    result_description: 
+    hp_consumption: 
+    condition_event_type1: 0
+    condition_event_time1: 0
+    condition_event_type2: 0
+    condition_event_time2: 0
+  - id: 17
+    type: 1
+    times: 2
+    description: 
+    result_description: 
+    hp_consumption: 
+    condition_event_type1: 0
+    condition_event_time1: 0
+    condition_event_type2: 0
+    condition_event_time2: 0
+  - id: 18
+    type: 1
+    times: 3
+    description: 
+    result_description: 
+    hp_consumption: 
+    condition_event_type1: 0
+    condition_event_time1: 0
+    condition_event_type2: 0
+    condition_event_time2: 0
+  - id: 19
+    type: 1
+    times: 1
+    description: 
+    result_description: 
+    hp_consumption: 
+    condition_event_type1: 0
+    condition_event_time1: 0
+    condition_event_type2: 0
+    condition_event_time2: 0
+  - id: 20
+    type: 1
+    times: 2
+    description: 
+    result_description: 
+    hp_consumption: 
+    condition_event_type1: 0
+    condition_event_time1: 0
+    condition_event_type2: 0
+    condition_event_time2: 0
+  - id: 21
+    type: 1
+    times: 3
+    description: 
+    result_description: 
+    hp_consumption: 
+    condition_event_type1: 0
+    condition_event_time1: 0
+    condition_event_type2: 0
+    condition_event_time2: 0
+  - id: 22
+    type: 1
+    times: 0
+    description: 
+    result_description: 
+    hp_consumption: 
+    condition_event_type1: 0
+    condition_event_time1: 0
+    condition_event_type2: 0
+    condition_event_time2: 0
+  - id: 23
+    type: 1
+    times: 0
+    description: 
+    result_description: 
+    hp_consumption: 
+    condition_event_type1: 0
+    condition_event_time1: 0
+    condition_event_type2: 0
+    condition_event_time2: 0
+  - id: 0
+    type: 0
+    times: 0
+    description: 
+    result_description: 
+    hp_consumption: 
+    condition_event_type1: 0
+    condition_event_time1: 0
+    condition_event_type2: 0
+    condition_event_time2: 0
+  - id: 0
+    type: 0
+    times: 0
+    description: 
+    result_description: 
+    hp_consumption: 
+    condition_event_type1: 0
+    condition_event_time1: 0
+    condition_event_type2: 0
+    condition_event_time2: 0
+  - id: 0
+    type: 0
+    times: 0
+    description: 
+    result_description: 
+    hp_consumption: 
+    condition_event_type1: 0
+    condition_event_time1: 0
+    condition_event_type2: 0
+    condition_event_time2: 0
