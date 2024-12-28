@@ -25,7 +25,7 @@ public class EventDTO
       _conditionEvents[0] = new ConditionEvent(vo.ConditionEventType1, vo.ConditionEventTime1);
       _conditionEvents[1] = new ConditionEvent(vo.ConditionEventType2, vo.ConditionEventTime2);
     }
-    public EventType Type => _vo.Type;
+    public EventType EventType => _vo.EventType;
     public int Times => _vo.Times;
     public string Description => _vo.Description;
     public string ResultDescription => _vo.ResultDescription;

@@ -9,8 +9,8 @@ public class EventVO
     public int Id => id;
     
     [SerializeField]
-    private EventType type;
-    public EventType Type => type;
+    private EventType event_type;
+    public EventType EventType => event_type;
 
     [SerializeField]
     private int times;

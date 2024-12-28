@@ -1,10 +1,10 @@
 public enum EventType
 {
-    Cooking = 1,
-    Reading = 2,
-    Pet = 3,
-    Bed = 4,
-    Game = 5,
-    Cleaning = 6,
-    Rest = 7,
+    料理 = 1,
+    読書 = 2,
+    ペットと遊ぶ = 3,
+    寝る = 4,
+    ゲームをする = 5,
+    掃除をする = 6,
+    休む = 7,
 }
