@@ -10,12 +10,11 @@ public class SelectableEventIconViewModel
     }
 
     public void AddSelectableEventIconType(EventIconView iconType)
-    {
-        _selectableEventType.Add(iconType);
-    }
+        => _selectableEventType.Add(iconType);
 
     public void RemoveSelectableEventIconType(EventIconView iconType)
-    {
-        _selectableEventType.Remove(iconType);
-    }
+        => _selectableEventType.Remove(iconType);
+
+    public bool IsExistedSelectableEventIconType()
+        =>  _selectableEventType.Count != 0;
 }

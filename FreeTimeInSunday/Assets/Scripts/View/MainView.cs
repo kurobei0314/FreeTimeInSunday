@@ -1,6 +1,7 @@
 using UnityEngine;
 using R3;
 using R3.Triggers;
+using System.Linq;
 
 public class MainView : MonoBehaviour
 {
@@ -13,16 +14,23 @@ public class MainView : MonoBehaviour
     void Start()
     {
         var iconViewModels = new SelectableEventIconViewModel();
+
         _playerView.OnTriggerEnter2DAsObservable().Where(col => col.gameObject.tag == "EventIcon")
         .Subscribe(col => 
         {
-            iconViewModels.AddSelectableEventIconType(col.gameObject.GetComponent<EventIconView>());
+            if (!col.gameObject.TryGetComponent<EventIconView>(out var iconView)) return;
+            iconViewModels.AddSelectableEventIconType(iconView);
+            _iconViews.FirstOrDefault(icon => icon.EventIconType == iconView.EventIconType).SetFocusIcon();
         }).AddTo(this);
 
         _playerView.OnTriggerExit2DAsObservable().Where(col => col.gameObject.tag == "EventIcon")
         .Subscribe(col => 
         {
-            iconViewModels.RemoveSelectableEventIconType(col.gameObject.GetComponent<EventIconView>());
+            if (!col.gameObject.TryGetComponent<EventIconView>(out var iconView)) return;
+            iconViewModels.RemoveSelectableEventIconType(iconView);
+            _iconViews.FirstOrDefault(icon => icon.EventIconType == iconView.EventIconType).SetUnFocusIcon();
         }).AddTo(this);
+
+        
     }
 }
