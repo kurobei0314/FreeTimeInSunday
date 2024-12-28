@@ -1,5 +1,6 @@
 public enum EventType
 {
+    なし = 0,
     料理 = 1,
     読書 = 2,
     ペットと遊ぶ = 3,

@@ -6,11 +6,15 @@ using System.Linq;
 
 public class MasterImportRepository
 {
-    public async UniTask LoadEventDTOs(Action<List<EventDTO>> callback)
+    public async UniTask LoadEventDTOs(Action<List<EventDTO>, List<EventIconDTO>> callback)
     {
-      var dataStore = Addressables.LoadAssetAsync<EventVODataStore>("Assets/Master/EventVODataStore");
-      await dataStore;
-      var eventDTOs = dataStore.Result.Items.Select(vo => new EventDTO(vo)).ToList();
-      callback?.Invoke(eventDTOs);
+      var eventVOdataStore = Addressables.LoadAssetAsync<EventVODataStore>("Assets/Master/EventVODataStore");
+      await eventVOdataStore;
+      var eventDTOs = eventVOdataStore.Result.Items.Select(vo => new EventDTO(vo)).ToList();
+
+      var eventIconVOdataStore = Addressables.LoadAssetAsync<EventIconVODataStore>("Assets/Master/EventIconVODataStore");
+      await eventIconVOdataStore;
+      var eventIconDTOs = eventIconVOdataStore.Result.Items.Select(vo => new EventIconDTO(vo)).ToList();
+      callback?.Invoke(eventDTOs, eventIconDTOs);
     }
 }
