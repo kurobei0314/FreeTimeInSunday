@@ -3,10 +3,10 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq;
 using System.Collections.Generic;
-using Cysharp.Threading.Tasks;
 
 public class StartGameController : MonoBehaviour
 {
+    [SerializeField] private MainView _mainView;
     void Start()
     {
         var services = new ServiceCollection();
@@ -15,7 +15,7 @@ public class StartGameController : MonoBehaviour
 
         LoadMaster((eventDTOLookup, eventIconDTO) =>
         {
-            
+            _mainView.Initialize();
         });
     }
 

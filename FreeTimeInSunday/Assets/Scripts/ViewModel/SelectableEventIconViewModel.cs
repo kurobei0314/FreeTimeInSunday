@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 public class SelectableEventIconViewModel
 {
@@ -17,4 +18,6 @@ public class SelectableEventIconViewModel
 
     public bool IsExistedSelectableEventIconType()
         =>  _selectableEventType.Count != 0;
+    public EventIconType[] GetSelectableEventType()
+        => _selectableEventType.Select(view => view.EventIconType).ToArray();
 }
