@@ -12,5 +12,75 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95aeba319ccef499ea9fa55a44a1f33b, type: 3}
   m_Name: EventIconVODataStore
   m_EditorClassIdentifier: 
-  loadingServerUrl: 
-  items: []
+  loadingServerUrl: https://docs.google.com/spreadsheets/d/1xrTu9AM4XFGkQO0ozg_d9Yv082trVuTxpvKjVGl09Bw/edit#gid=417751155#gid=417751155
+  items:
+  - id: 1
+    event_icon_type: 1
+    event_type1: 0
+    event_type2: 0
+    event_type3: 0
+  - id: 2
+    event_icon_type: 2
+    event_type1: 7
+    event_type2: 7
+    event_type3: 7
+  - id: 3
+    event_icon_type: 3
+    event_type1: 1
+    event_type2: 1
+    event_type3: 1
+  - id: 4
+    event_icon_type: 4
+    event_type1: 1
+    event_type2: 1
+    event_type3: 1
+  - id: 5
+    event_icon_type: 5
+    event_type1: 1
+    event_type2: 1
+    event_type3: 1
+  - id: 0
+    event_icon_type: 0
+    event_type1: 1
+    event_type2: 1
+    event_type3: 1
+  - id: 0
+    event_icon_type: 0
+    event_type1: 1
+    event_type2: 1
+    event_type3: 1
+  - id: 0
+    event_icon_type: 0
+    event_type1: 1
+    event_type2: 1
+    event_type3: 1
+  - id: 0
+    event_icon_type: 0
+    event_type1: 1
+    event_type2: 1
+    event_type3: 1
+  - id: 0
+    event_icon_type: 0
+    event_type1: 1
+    event_type2: 1
+    event_type3: 1
+  - id: 0
+    event_icon_type: 0
+    event_type1: 1
+    event_type2: 1
+    event_type3: 1
+  - id: 0
+    event_icon_type: 0
+    event_type1: 1
+    event_type2: 1
+    event_type3: 1
+  - id: 0
+    event_icon_type: 0
+    event_type1: 1
+    event_type2: 1
+    event_type3: 1
+  - id: 0
+    event_icon_type: 0
+    event_type1: 1
+    event_type2: 1
+    event_type3: 1

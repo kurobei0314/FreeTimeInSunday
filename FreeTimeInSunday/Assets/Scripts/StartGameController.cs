@@ -12,12 +12,14 @@ public class StartGameController : MonoBehaviour
         var services = new ServiceCollection();
         services.AddSingleton<PlayerPresenter>();
         services.BuildServiceProvider().GetService<PlayerPresenter>();
-        LoadMaster((eventDTOLookup, eventIconDTO) => {
+
+        LoadMaster((eventDTOLookup, eventIconDTO) =>
+        {
             
         });
     }
 
-    private void LoadMaster(Action<ILookup<EventType , EventDTO>, List<EventIconDTO>> callback)
+    private void LoadMaster(Action<ILookup<EventType, EventDTO>, List<EventIconDTO>> callback)
     {
         var masterImport = new MasterImportRepository();
         var _ = masterImport.LoadEventDTOs((eventDTO, eventIconDTO) => {

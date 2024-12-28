@@ -12,12 +12,6 @@ public class PlayerView : MonoBehaviour
         Observable.EveryUpdate().Subscribe(_ => {
             this.transform.Translate(_walkAxis * Time.deltaTime);
         }).AddTo(this);
-        
-        this.gameObject.OnTriggerStay2DAsObservable().Subscribe(_ => 
-        {
-            Debug.Log("wa----i");
-        }).AddTo(this);
-
     }
 
     #region InputSystem
