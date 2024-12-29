@@ -4,6 +4,7 @@ using R3.Triggers;
 using System.Linq;
 using UnityEngine.InputSystem;
 using System;
+using UnityEngine.Playables;
 
 public class MainView : MonoBehaviour, IUpdateMainViewDispatcher
 {
@@ -12,13 +13,15 @@ public class MainView : MonoBehaviour, IUpdateMainViewDispatcher
     [SerializeField] private TextBoxView _textBoxView;
     [SerializeField] private TimeView _timeView;
     [SerializeField] private EventIconView[] _iconViews;
+    [SerializeField] private PlayableDirector _eventDirector;
     private SelectableEventIconViewModel _iconViewModels;
     private MainStateViewModel _mainStateViewModel;
-    private Func<EventIconType, EventType[]> _getEventTypeAction;
+    private Func<EventIconType, SelectEventTypeDTO[]> _getEventTypeAction;
 
-    public void Initialize(Func<EventIconType, EventType[]> GetEventTypeAction) 
+    public void Initialize(Func<EventIconType, SelectEventTypeDTO[]> getEventTypeAction,
+                            Func<EventType> getFinishedEventResultAction) 
     {
-        _getEventTypeAction = GetEventTypeAction;
+        _getEventTypeAction = getEventTypeAction;
 
         _iconViewModels = new SelectableEventIconViewModel();
         _mainStateViewModel = new MainStateViewModel();
@@ -108,6 +111,10 @@ public class MainView : MonoBehaviour, IUpdateMainViewDispatcher
     private void OnDecideForDecideEventState()
     {
         _mainStateViewModel.SetState(MainStateViewModel.State.Event);
+        _textBoxView.DecideEvent((selectEventType) =>
+        {
+            _eventDirector.Play();
+        });
     }
 
     public void Dispose()

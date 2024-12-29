@@ -17,6 +17,10 @@ public class EventVO
     public int Times => times;
 
     [SerializeField]
+    private int is_repeat;
+    public int IsRepeat => is_repeat;
+
+    [SerializeField]
     private string description;
     public string Description => description;
 
@@ -25,8 +29,12 @@ public class EventVO
     public string ResultDescription => result_description;
 
     [SerializeField]
-    private string hp_consumption;
-    public string HPConsumption => hp_consumption;
+    private int hp_consumption;
+    public int HPConsumption => hp_consumption;
+
+    [SerializeField]
+    private int hour_consumption;
+    public int HourConsumption => hour_consumption;
 
     [SerializeField]
     private EventType condition_event_type1;

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -27,10 +28,13 @@ public class EventDTO
       conditionEventLists.Add(new ConditionEvent(vo.ConditionEventType2, vo.ConditionEventTime2));
       _conditionEvents = conditionEventLists.Where(condition => condition.Type != EventType.なし).ToArray();
     }
+    public int Id => _vo.Id;
     public EventType EventType => _vo.EventType;
     public int Times => _vo.Times;
+    public bool IsRepeat => Convert.ToBoolean(_vo.IsRepeat);
     public string Description => _vo.Description;
     public string ResultDescription => _vo.ResultDescription;
-    public string HPConsumption => _vo.HPConsumption;
+    public int HPConsumption => _vo.HPConsumption;
+    public int HourConsumption => _vo.HourConsumption;
     public ConditionEvent[] ConditionEvents => _conditionEvents;
 }

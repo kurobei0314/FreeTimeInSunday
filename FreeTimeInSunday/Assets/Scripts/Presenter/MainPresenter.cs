@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 
 public class MainPresenter
 {
@@ -20,6 +19,9 @@ public class MainPresenter
       _dispatcher = dispatcher;
     }
 
-    public EventType[] GetEventTypes(EventIconType eventIconType)
-      => _eventIconDTOs.FirstOrDefault(dto => dto.EventIconType == eventIconType).EventTypes;
+    public SelectEventTypeDTO[] GetEventTypes(EventIconType eventIconType)
+    {
+      var eventTypes = _eventIconDTOs.FirstOrDefault(dto => dto.EventIconType == eventIconType).EventTypes;
+      return eventTypes.Select(type => new SelectEventTypeDTO(type, _playerModel.IsSelectableEventType(_eventLookUp[type].ToList()))).ToArray();
+    }
 }
