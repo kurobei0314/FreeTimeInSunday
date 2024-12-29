@@ -84,7 +84,7 @@ public class TextBoxView : MonoBehaviour
         return num;
     }
 
-    private void SetActiveFalseSelectPanel()
+    public void SetActiveFalseSelectPanel()
     {
         for (var i = 0; i < _selectPanels.Length; i++) _selectPanels[i].gameObject.SetActive(false);
     }

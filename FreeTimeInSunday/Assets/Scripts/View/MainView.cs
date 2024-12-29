@@ -14,17 +14,27 @@ public class MainView : MonoBehaviour, IUpdateMainViewDispatcher
     [SerializeField] private TimeView _timeView;
     [SerializeField] private EventIconView[] _iconViews;
     [SerializeField] private PlayableDirector _eventDirector;
+    [SerializeField] private PlayableDirector _resultDirector;
+
     private SelectableEventIconViewModel _iconViewModels;
     private MainStateViewModel _mainStateViewModel;
+    private DayResultViewModel _dayResultViewModel;
     private Func<EventIconType, SelectEventTypeDTO[]> _getEventTypeAction;
+    private Action<EventType> _decideEventAction;
 
-    public void Initialize(Func<EventIconType, SelectEventTypeDTO[]> getEventTypeAction,
-                            Func<EventType> getFinishedEventResultAction) 
+    public void Initialize( int elapsedTime,
+                            Func<EventIconType, SelectEventTypeDTO[]> getEventTypeAction,
+                            Action<EventType> decideEventAction) 
     {
         _getEventTypeAction = getEventTypeAction;
+        _decideEventAction = decideEventAction;
+
+        _textBoxView.SetActiveFalseSelectPanel();
+        _timeView.Initialize(elapsedTime);
 
         _iconViewModels = new SelectableEventIconViewModel();
         _mainStateViewModel = new MainStateViewModel();
+        _dayResultViewModel = new DayResultViewModel();
 
         _playerView.OnTriggerEnter2DAsObservable().Where(col => col.gameObject.tag == "EventIcon")
         .Subscribe(col => 
@@ -41,8 +51,6 @@ public class MainView : MonoBehaviour, IUpdateMainViewDispatcher
             _iconViewModels.RemoveSelectableEventIconType(iconView);
             _iconViews.FirstOrDefault(icon => icon.EventIconType == iconView.EventIconType).SetUnFocusIcon();
         }).AddTo(this);
-
-        
     }
 
     #region InputSystem
@@ -113,8 +121,18 @@ public class MainView : MonoBehaviour, IUpdateMainViewDispatcher
         _mainStateViewModel.SetState(MainStateViewModel.State.Event);
         _textBoxView.DecideEvent((selectEventType) =>
         {
-            _eventDirector.Play();
+            _decideEventAction.Invoke(selectEventType);
         });
+    }
+
+    void IUpdateMainViewDispatcher.UpdateViewByDecideEvent(SelectedEventResultViewModel resultViewModel)
+    {
+        _eventDirector.Play();
+        _playerHPView.Initialize(resultViewModel.AfterHP);
+        _textBoxView.SetDescriptionText(resultViewModel.Description);
+        _timeView.Initialize(resultViewModel.AfterElapsedTime);
+        _dayResultViewModel.AddResultText(resultViewModel.ResultDescription);
+        // TODO: 再生し終わった時に、1日が終わったかどうかをみて終わってたらanimationを再生するようにする
     }
 
     public void Dispose()

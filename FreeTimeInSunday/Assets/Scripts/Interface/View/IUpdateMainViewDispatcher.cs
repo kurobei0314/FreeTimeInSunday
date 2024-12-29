@@ -1,6 +1,4 @@
-using UnityEngine;
-
 public interface IUpdateMainViewDispatcher
 {
-    
+    void UpdateViewByDecideEvent(SelectedEventResultViewModel resultViewModel);
 }

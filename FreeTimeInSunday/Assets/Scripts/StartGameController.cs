@@ -18,7 +18,9 @@ public class StartGameController : MonoBehaviour
         LoadMaster((eventDTOLookup, eventIconDTO) =>
         {
             var mainPresenter = new MainPresenter(eventDTOLookup, eventIconDTO, playerModel, _mainView);
-            _mainView.Initialize((iconType) => mainPresenter.GetEventTypes(iconType), null);
+            _mainView.Initialize( playerModel.ElapsedTime,
+                                 (iconType) => mainPresenter.GetEventTypes(iconType), 
+                                 (eventType) => mainPresenter.UpdatePlayerModel(eventType));
         });
     }
 

@@ -24,4 +24,11 @@ public class MainPresenter
       var eventTypes = _eventIconDTOs.FirstOrDefault(dto => dto.EventIconType == eventIconType).EventTypes;
       return eventTypes.Select(type => new SelectEventTypeDTO(type, _playerModel.IsSelectableEventType(_eventLookUp[type].ToList()))).ToArray();
     }
+
+    public void UpdatePlayerModel(EventType eventType)
+    {
+      var dto = _playerModel.UpdateBySelectedEvent(_eventLookUp[eventType].ToList());
+      _dispatcher.UpdateViewByDecideEvent(dto);
+    }
+    
 }

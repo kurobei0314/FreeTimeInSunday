@@ -7,6 +7,7 @@ public class PlayerModel
     private int _hp;
     public int HP => _hp;
     private int _elapsedTime;
+    public int ElapsedTime => _elapsedTime;
     private Dictionary<EventType, int> _eventTimeDic;
     private List<int> _happenedEventId;
 
@@ -23,20 +24,22 @@ public class PlayerModel
         }
     }
 
-    public int AddElapsedTime(int time)
+    public SelectedEventResultViewModel UpdateBySelectedEvent(List<EventDTO> eventDTOs)
     {
-        _elapsedTime += time;
-        return _elapsedTime;
+        var nextEventDTO = GetNextEventDTO(eventDTOs);
+        if (nextEventDTO == null) return null;
+        AddHP(nextEventDTO.HPConsumption);
+        AddElapsedTime(nextEventDTO.HourConsumption);
+        return new SelectedEventResultViewModel(_hp, _elapsedTime, nextEventDTO.Description, nextEventDTO.ResultDescription, IsFinishDay());
     }
+
+    private void AddHP(int value)
+        => _hp += value;
+    private void AddElapsedTime(int value)
+        => _elapsedTime += value;
 
     public bool IsFinishDay()
         => _elapsedTime >= GameInfo.DayTime;
-
-    public int AddHP(int hp)
-    {
-        _hp += hp;
-        return _hp;
-    }
 
     public bool IsSelectableEventType(List<EventDTO> eventDTOs)
     {
