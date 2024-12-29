@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 public class EventIconDTO
 {
     private EventIconVO _vo;
@@ -5,10 +7,11 @@ public class EventIconDTO
     public EventIconDTO(EventIconVO vo)
     {
       _vo = vo;
-      _conditionEvents = new EventType[3];
-      _conditionEvents[0] = vo.EventType1;
-      _conditionEvents[1] = vo.EventType2;
-      _conditionEvents[2] = vo.EventType3;
+      var conditionEventLists = new List<EventType>();
+      conditionEventLists.Add(vo.EventType1);
+      conditionEventLists.Add(vo.EventType2);
+      conditionEventLists.Add(vo.EventType3);
+      _conditionEvents = conditionEventLists.Where(type => type != EventType.なし).ToArray();
     }
     public EventIconType EventIconType => _vo.EventIconType;
     public EventType[] EventTypes => _conditionEvents;

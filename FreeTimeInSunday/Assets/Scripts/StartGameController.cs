@@ -10,12 +10,15 @@ public class StartGameController : MonoBehaviour
     void Start()
     {
         var services = new ServiceCollection();
-        services.AddSingleton<PlayerPresenter>();
-        services.BuildServiceProvider().GetService<PlayerPresenter>();
+        services.AddSingleton<MainPresenter>();
+        services.AddSingleton<PlayerModel>();
+        var playerModel = services.BuildServiceProvider().GetService<PlayerModel>();
+        services.BuildServiceProvider().GetService<MainPresenter>();
 
         LoadMaster((eventDTOLookup, eventIconDTO) =>
         {
-            _mainView.Initialize();
+            var mainPresenter = new MainPresenter(eventDTOLookup, eventIconDTO, playerModel, _mainView);
+            _mainView.Initialize((iconType) => mainPresenter.GetEventTypes(iconType));
         });
     }
 

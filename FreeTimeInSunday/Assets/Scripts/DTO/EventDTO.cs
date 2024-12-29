@@ -1,4 +1,5 @@
-using UnityEngine;
+using System.Collections.Generic;
+using System.Linq;
 
 public class ConditionEvent
 {
@@ -21,9 +22,10 @@ public class EventDTO
     public EventDTO(EventVO vo)
     {
       _vo = vo;
-      _conditionEvents = new ConditionEvent[2];
-      _conditionEvents[0] = new ConditionEvent(vo.ConditionEventType1, vo.ConditionEventTime1);
-      _conditionEvents[1] = new ConditionEvent(vo.ConditionEventType2, vo.ConditionEventTime2);
+      var conditionEventLists = new List<ConditionEvent>();
+      conditionEventLists.Add(new ConditionEvent(vo.ConditionEventType1, vo.ConditionEventTime1));
+      conditionEventLists.Add(new ConditionEvent(vo.ConditionEventType2, vo.ConditionEventTime2));
+      _conditionEvents = conditionEventLists.Where(condition => condition.Type != EventType.なし).ToArray();
     }
     public EventType EventType => _vo.EventType;
     public int Times => _vo.Times;

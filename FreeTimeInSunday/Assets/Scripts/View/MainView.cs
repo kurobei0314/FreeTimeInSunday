@@ -3,8 +3,9 @@ using R3;
 using R3.Triggers;
 using System.Linq;
 using UnityEngine.InputSystem;
+using System;
 
-public class MainView : MonoBehaviour
+public class MainView : MonoBehaviour, IUpdateMainViewDispatcher
 {
     [SerializeField] private PlayerView _playerView;
     [SerializeField] private PlayerHPView _playerHPView;
@@ -13,9 +14,12 @@ public class MainView : MonoBehaviour
     [SerializeField] private EventIconView[] _iconViews;
     private SelectableEventIconViewModel _iconViewModels;
     private MainStateViewModel _mainStateViewModel;
+    private Func<EventIconType, EventType[]> _getEventTypeAction;
 
-    public void Initialize() 
+    public void Initialize(Func<EventIconType, EventType[]> GetEventTypeAction) 
     {
+        _getEventTypeAction = GetEventTypeAction;
+
         _iconViewModels = new SelectableEventIconViewModel();
         _mainStateViewModel = new MainStateViewModel();
 
@@ -49,6 +53,9 @@ public class MainView : MonoBehaviour
             case MainStateViewModel.State.DecideEventIcon:
                 OnDecideForDecideEventIconState();
                 break;
+            case MainStateViewModel.State.DecideEvent:
+                OnDecideForDecideEventState();
+                break;
         }
     }
 
@@ -57,6 +64,8 @@ public class MainView : MonoBehaviour
         switch (_mainStateViewModel.state)
         {
             case MainStateViewModel.State.DecideEventIcon:
+            case MainStateViewModel.State.DecideEvent:
+                _textBoxView.SetNextFocusSelection(1);
                 break;
         }
     }
@@ -65,7 +74,20 @@ public class MainView : MonoBehaviour
         switch (_mainStateViewModel.state)
         {
             case MainStateViewModel.State.DecideEventIcon:
+            case MainStateViewModel.State.DecideEvent:
+                _textBoxView.SetNextFocusSelection(-1);
                 break;
+        }
+    }
+    public void OnCancel()
+    {
+        switch (_mainStateViewModel.state)
+        {
+            case MainStateViewModel.State.DecideEventIcon:
+            case MainStateViewModel.State.DecideEvent:
+                _textBoxView.SetActiveTextBox(false);
+                _mainStateViewModel.SetState(MainStateViewModel.State.PlayerMove);
+                break;  
         }
     }
     #endregion
@@ -74,11 +96,18 @@ public class MainView : MonoBehaviour
     {
         if (!_iconViewModels.IsExistedSelectableEventIconType()) return;
         _textBoxView.SetSelectableEventIconType(_iconViewModels.GetSelectableEventType());
+        _mainStateViewModel.SetState(MainStateViewModel.State.DecideEventIcon);
     }
 
     private void OnDecideForDecideEventIconState()
     {
-        // SetSelectableEvent();
+        _textBoxView.SetSelectableEvent(_getEventTypeAction);
+        _mainStateViewModel.SetState(MainStateViewModel.State.DecideEvent);
+    }
+
+    private void OnDecideForDecideEventState()
+    {
+        _mainStateViewModel.SetState(MainStateViewModel.State.Event);
     }
 
     public void Dispose()
