@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEngine;
 
 public class DayResultViewModel
 {
@@ -11,6 +10,9 @@ public class DayResultViewModel
 
     public void AddResultText(string resultText)
       => _resultTextLists.Add(resultText);
+    
+    public void ClearResultText()
+      => _resultTextLists.Clear();
 
-    public List<string> ResultTextLists;
+    public List<string> ResultTextLists => _resultTextLists;
 }
