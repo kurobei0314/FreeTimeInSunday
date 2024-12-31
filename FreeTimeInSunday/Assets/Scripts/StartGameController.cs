@@ -13,7 +13,7 @@ public class StartGameController : MonoBehaviour
         services.AddSingleton<MainPresenter>();
         services.AddSingleton<PlayerModel>();
         var playerModel = services.BuildServiceProvider().GetService<PlayerModel>();
-        services.BuildServiceProvider().GetService<MainPresenter>();
+        // services.BuildServiceProvider().GetService<MainPresenter>();
 
         LoadMaster((eventDTOLookup, eventIconDTO) =>
         {

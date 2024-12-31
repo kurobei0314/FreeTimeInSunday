@@ -31,6 +31,7 @@ public class MainView : MonoBehaviour, IUpdateMainViewDispatcher
 
         _textBoxView.SetActiveFalseSelectPanel();
         _timeView.Initialize(elapsedTime);
+        _playerView.Initialize();
 
         _iconViewModels = new SelectableEventIconViewModel();
         _mainStateViewModel = new MainStateViewModel();
@@ -100,6 +101,12 @@ public class MainView : MonoBehaviour, IUpdateMainViewDispatcher
                 _mainStateViewModel.SetState(MainStateViewModel.State.PlayerMove);
                 break;  
         }
+    }
+
+    public void OnMove(InputValue input)
+    {
+        var axis = input.Get<Vector2>();
+        _playerView.UpdateWalkAxis(new Vector3(axis.x, axis.y, 0.0f));
     }
     #endregion
 

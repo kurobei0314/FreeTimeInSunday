@@ -7,18 +7,13 @@ public class PlayerView : MonoBehaviour
 {
     private Vector3 _walkAxis;
 
-    public void Start()
+    public void Initialize()
     {
         Observable.EveryUpdate().Subscribe(_ => {
-            this.transform.Translate(_walkAxis * Time.deltaTime);
+            this.transform.Translate(_walkAxis * Time.deltaTime * 10);
         }).AddTo(this);
     }
 
-    #region InputSystem
-    public void OnMove(InputValue input)
-    {
-        var axis = input.Get<Vector2>();
-        _walkAxis = new Vector3(axis.x, axis.y, 0.0f);
-    }
-    #endregion
+    public void UpdateWalkAxis(Vector3 axis)
+        => _walkAxis = axis;
 }
