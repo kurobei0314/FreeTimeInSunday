@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventIconType: 4
-  _animator: {fileID: 0}
+  _animator: {fileID: 4970854165372194200}
 --- !u!222 &597358958881675602
 CanvasRenderer:
   m_ObjectHideFlags: 0
