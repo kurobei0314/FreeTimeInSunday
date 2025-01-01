@@ -23,7 +23,7 @@ public class TextBoxView : MonoBehaviour
         _selectIndex = 0;
         _eventIconTypes = eventIconTypes;
         _text.text = GameInfo.SelectableEventIconTypeTitleText;
-        var interactables = new bool[_eventTypes.Length];
+        var interactables = new bool[_eventIconTypes.Length];
         for (var i = 0; i < interactables.Length; i++) interactables[i] = true;
         InitializeSelectPanels(GetSelectPanelsInfoArray(eventIconTypes, interactables));
     }
