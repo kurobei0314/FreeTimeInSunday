@@ -77,7 +77,7 @@ public class MainView : MonoBehaviour, IUpdateMainViewDispatcher
         {
             case MainStateViewModel.State.DecideEventIcon:
             case MainStateViewModel.State.DecideEvent:
-                _textBoxView.SetNextFocusSelection(1);
+                _textBoxView.SetNextFocusSelection(-1);
                 break;
         }
     }
@@ -87,7 +87,7 @@ public class MainView : MonoBehaviour, IUpdateMainViewDispatcher
         {
             case MainStateViewModel.State.DecideEventIcon:
             case MainStateViewModel.State.DecideEvent:
-                _textBoxView.SetNextFocusSelection(-1);
+                _textBoxView.SetNextFocusSelection(1);
                 break;
         }
     }
@@ -105,8 +105,13 @@ public class MainView : MonoBehaviour, IUpdateMainViewDispatcher
 
     public void OnMove(InputValue input)
     {
-        var axis = input.Get<Vector2>();
-        _playerView.UpdateWalkAxis(new Vector3(axis.x, axis.y, 0.0f));
+        switch (_mainStateViewModel.state)
+        {
+            case MainStateViewModel.State.PlayerMove:
+                var axis = input.Get<Vector2>();
+                _playerView.UpdateWalkAxis(new Vector3(axis.x, axis.y, 0.0f));
+                break;
+        }
     }
     #endregion
 

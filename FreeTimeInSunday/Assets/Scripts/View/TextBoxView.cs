@@ -47,7 +47,7 @@ public class TextBoxView : MonoBehaviour
 
     public void SetNextFocusSelection(int delta)
     {
-        if (_selectIndex <= 0 || _selectIndex >= GetActiveTrueSelectPanelNum()) return;
+        if (_selectIndex + delta < 0 || _selectIndex + delta >= GetActiveTrueSelectPanelNum()) return;
         _selectPanels[_selectIndex].SetFocusStatus(false);
         _selectIndex += delta;
         _selectPanels[_selectIndex].SetFocusStatus(true);
