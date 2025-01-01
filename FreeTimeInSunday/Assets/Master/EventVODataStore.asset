@@ -15,261 +15,397 @@ MonoBehaviour:
   loadingServerUrl: https://docs.google.com/spreadsheets/d/1xrTu9AM4XFGkQO0ozg_d9Yv082trVuTxpvKjVGl09Bw/edit#gid=0#gid=0
   items:
   - id: 1
-    type: 1
+    event_type: 1
     times: 1
-    description: 
+    is_repeat: 0
+    description: "\u5375\u304B\u3051\u3054\u98EF\u3092\u4F5C\u3063\u305F\u3002\n\u5375\u304C\u3068\u308D\u3068\u308D\u3057\u3066\u7F8E\u5473\u3057\u305D\u3046\u3060\u3002\n\u6599\u7406\u306E\u3084\u3063\u305F\u3053\u3068\u306E\u306A\u3044\u81EA\u5206\u306B\u3082\u7C21\u5358\u306B\u3067\u304D\u308B\n\u304A\u3044\u3057\u304B\u3063\u305F"
     result_description: 
-    hp_consumption: 
+    hp_consumption: 0
+    hour_consumption: 0
     condition_event_type1: 0
     condition_event_time1: 0
     condition_event_type2: 0
     condition_event_time2: 0
   - id: 2
-    type: 1
+    event_type: 1
     times: 2
-    description: 
+    is_repeat: 0
+    description: "\u91CE\u83DC\u7092\u3081\u3092\u4F5C\u3063\u305F\u3002\n\u4ECA\u5EA6\u306F\u30D5\u30E9\u30A4\u30D1\u30F3\u3092\u4F5C\u308C\u308B\u6599\u7406\u3092\u4F5C\u3063\u305F\u3002\n\u91CE\u83DC\u304C\u305F\u304F\u3055\u3093\u98DF\u3079\u308C\u3066\u5065\u5EB7\u305D\u3046\u3060"
     result_description: 
-    hp_consumption: 
+    hp_consumption: 0
+    hour_consumption: 0
     condition_event_type1: 0
-    condition_event_time1: 0
+    condition_event_time1: 1
     condition_event_type2: 0
     condition_event_time2: 0
   - id: 3
-    type: 1
+    event_type: 1
     times: 3
-    description: 
+    is_repeat: 0
+    description: "\u30B0\u30E9\u30BF\u30F3\u3092\u4F5C\u3063\u305F\u3002\n\u30AA\u30FC\u30D6\u30F3\u3092\u521D\u3081\u3066\u4F7F\u3063\u305F\u3002\n\u30C1\u30FC\u30BA\u3082\u3068\u308D\u3051\u3066\u71B1\u3005\u3067\u7F8E\u5473\u3057\u305D\u3046\u3060....!"
     result_description: 
-    hp_consumption: 
+    hp_consumption: 0
+    hour_consumption: 0
     condition_event_type1: 0
-    condition_event_time1: 0
+    condition_event_time1: 2
     condition_event_type2: 0
     condition_event_time2: 0
   - id: 4
-    type: 1
-    times: 1
-    description: 
+    event_type: 1
+    times: 4
+    is_repeat: 1
+    description: "\u30AB\u30EC\u30FC\u3092\u4F5C\u3063\u305F\u3002\n\u3053\u3053\u307E\u3067\u6599\u7406\u3092\u6311\u6226\u3057\u3066\u307F\u3066\u3064\u3044\u306B\u30AB\u30EC\u30FC\u307E\u3067\u4F5C\u308C\u308B\u3088\u3046\u306B\u306A\u3063\u3066\u3066\u611F\u52D5...!\n2\u65E5\u76EE\u306E\u30AB\u30EC\u30FC\u304C\u697D\u3057\u307F\u3060"
     result_description: 
-    hp_consumption: 
+    hp_consumption: 0
+    hour_consumption: 0
     condition_event_type1: 0
-    condition_event_time1: 0
+    condition_event_time1: 3
     condition_event_type2: 0
     condition_event_time2: 0
   - id: 5
-    type: 1
-    times: 2
-    description: 
+    event_type: 1
+    times: 4
+    is_repeat: 0
+    description: "\u6599\u7406\u672C\u3092\u898B\u306A\u304C\u3089\u30AF\u30C3\u30AD\u30FC\u3092\u4F5C\u3063\u3066\u307F\u305F\u3002\n\u304A\u83D3\u5B50\u3092\u4F5C\u308B\u306E\u306F\u304B\u306A\u308A\u5927\u5909...!\n\u8A18\u4E8B\u3092\u6DF7\u305C\u308B\u306E\u306B\u529B\u3092\u4F7F\u3044\u3001\u660E\u65E5\u306F\u7B4B\u8089\u75DB\u306B\u306A\u308A\u305D\u3046\u3060...!\n\u304B\u306A\u308A\u82E6\u52B4\u3057\u3066\u4F5C\u3063\u305F\u30AF\u30C3\u30AD\u30FC\u306F\u672C\u5F53\u306B\u304A\u3044\u3057\u304B\u3063\u305F"
     result_description: 
-    hp_consumption: 
+    hp_consumption: 0
+    hour_consumption: 0
     condition_event_type1: 0
-    condition_event_time1: 0
+    condition_event_time1: 3
     condition_event_type2: 0
-    condition_event_time2: 0
+    condition_event_time2: 4
   - id: 6
-    type: 1
-    times: 3
-    description: 
+    event_type: 2
+    times: 1
+    is_repeat: 0
+    description: "\u5FC3\u7406\u5B66\u306E\u672C\u3092\u8AAD\u3093\u3060\u3002\n\u5FC3\u7406\u5B66\u3092\u5B8C\u5168\u306B\u7406\u89E3\u3057\u305F\u6C17\u304C\u3059\u308B\u3002"
     result_description: 
-    hp_consumption: 
+    hp_consumption: 0
+    hour_consumption: 0
     condition_event_type1: 0
     condition_event_time1: 0
     condition_event_type2: 0
     condition_event_time2: 0
   - id: 7
-    type: 1
-    times: 1
-    description: 
+    event_type: 2
+    times: 2
+    is_repeat: 0
+    description: "\u5FC3\u7406\u5B66\u306E\u672C\u3092\u8AAD\u3093\u3060\u3002\n\u5FC3\u7406\u5B66\u306E\u3053\u3068\u3092\u4F55\u3082\u308F\u304B\u3089\u306A\u304F\u306A\u3063\u305F\u3002"
     result_description: 
-    hp_consumption: 
+    hp_consumption: 0
+    hour_consumption: 0
     condition_event_type1: 0
-    condition_event_time1: 0
+    condition_event_time1: 1
     condition_event_type2: 0
     condition_event_time2: 0
   - id: 8
-    type: 1
-    times: 2
-    description: 
+    event_type: 2
+    times: 3
+    is_repeat: 0
+    description: "\u5FC3\u7406\u5B66\u306E\u672C\u3092\u8AAD\u3093\u3060\u3002\n\u5FC3\u7406\u5B66\u306E\u3053\u3068\u3092\u3061\u3087\u3063\u3068\u308F\u304B\u308B\u3088\u3046\u306B\u306A\u3063\u305F\u3002"
     result_description: 
-    hp_consumption: 
+    hp_consumption: 0
+    hour_consumption: 0
     condition_event_type1: 0
-    condition_event_time1: 0
+    condition_event_time1: 2
     condition_event_type2: 0
     condition_event_time2: 0
   - id: 9
-    type: 1
-    times: 3
-    description: 
+    event_type: 2
+    times: 4
+    is_repeat: 0
+    description: "\u673A\u3092\u6F01\u3063\u3066\u3044\u305F\u3089\u3001\u524D\u306B\u8CB7\u3063\u305F\u6599\u7406\u672C\u3092\u898B\u3064\u3051\u305F!\n\u30D1\u30E9\u30D1\u30E9\u8AAD\u3093\u3060\u3068\u3053\u308D\u30AF\u30C3\u30AD\u30FC\u306E\u4F5C\u308A\u65B9\u304C\u6C17\u306B\u306A\u3063\u305F\u3002\n\u4ECA\u5EA6\u4F5C\u3063\u3066\u307F\u3088\u3046\u304B\u306A\u3002"
     result_description: 
-    hp_consumption: 
+    hp_consumption: 0
+    hour_consumption: 0
     condition_event_type1: 0
-    condition_event_time1: 0
+    condition_event_time1: 3
     condition_event_type2: 0
     condition_event_time2: 0
   - id: 10
-    type: 1
-    times: 1
-    description: 
+    event_type: 2
+    times: 5
+    is_repeat: 1
+    description: "\u304B\u306A\u308A\u524D\u306B\u8CB7\u3063\u305F\u5C0F\u8AAC\u3092\u8AAD\u3093\u3060\u3002\n\u5C0F\u8AAC\u3092\u8CB7\u3046\u3060\u3051\u8CB7\u3063\u3066\u8CAF\u3081\u3066\u3057\u307E\u3046\u306E\u3067\u3001\u4E00\u518A\u3067\u3082\u8AAD\u3081\u308B\u6642\u9593\u304C\u3042\u308B\u306E\u306F\u5B09\u3057\u3044...!\n"
     result_description: 
-    hp_consumption: 
+    hp_consumption: 0
+    hour_consumption: 0
     condition_event_type1: 0
-    condition_event_time1: 0
+    condition_event_time1: 3
     condition_event_type2: 0
     condition_event_time2: 0
   - id: 11
-    type: 1
-    times: 2
-    description: 
+    event_type: 3
+    times: 1
+    is_repeat: 0
+    description: "\u30DA\u30C3\u30C8\u306E\u30DD\u30C6\u30C8\u3068\u4E00\u7DD2\u306B\u304A\u3082\u3061\u3083\u306E\u306C\u3044\u3050\u308B\u307F\u306E\u5F15\u3063\u5F35\u308A\u5408\u3044\u3092\u3057\u305F\n\u7D50\u69CB\u529B\u304C\u5F37\u3044\u3053\u3068\u306B\u3073\u3063\u304F\u308A\n\u306C\u3044\u3050\u308B\u307F\u306F\u771F\u3093\u4E2D\u304B\u3089\u907F\u3051\u3066\u3057\u307E\u3063\u305F\n\u30DD\u30C6\u30C8\u304C\u697D\u3057\u305D\u3046\u3060\u3063\u305F\u306E\u3067\u540C\u3058\u306C\u3044\u3050\u308B\u307F\u3092\u307E\u305F\u8CB7\u3063\u3066\u304D\u3066\u904A\u307C\u3046"
     result_description: 
-    hp_consumption: 
+    hp_consumption: 0
+    hour_consumption: 0
     condition_event_type1: 0
     condition_event_time1: 0
     condition_event_type2: 0
     condition_event_time2: 0
   - id: 12
-    type: 1
-    times: 3
+    event_type: 3
+    times: 2
+    is_repeat: 0
     description: 
     result_description: 
-    hp_consumption: 
+    hp_consumption: 0
+    hour_consumption: 0
     condition_event_type1: 0
-    condition_event_time1: 0
+    condition_event_time1: 1
     condition_event_type2: 0
     condition_event_time2: 0
   - id: 13
-    type: 1
-    times: 1
+    event_type: 3
+    times: 3
+    is_repeat: 0
     description: 
     result_description: 
-    hp_consumption: 
+    hp_consumption: 0
+    hour_consumption: 0
     condition_event_type1: 0
-    condition_event_time1: 0
+    condition_event_time1: 2
     condition_event_type2: 0
     condition_event_time2: 0
   - id: 14
-    type: 1
-    times: 2
+    event_type: 3
+    times: 4
+    is_repeat: 1
     description: 
     result_description: 
-    hp_consumption: 
+    hp_consumption: 0
+    hour_consumption: 0
     condition_event_type1: 0
-    condition_event_time1: 0
+    condition_event_time1: 3
     condition_event_type2: 0
     condition_event_time2: 0
   - id: 15
-    type: 1
-    times: 3
+    event_type: 4
+    times: 1
+    is_repeat: 0
     description: 
     result_description: 
-    hp_consumption: 
+    hp_consumption: 0
+    hour_consumption: 0
     condition_event_type1: 0
     condition_event_time1: 0
     condition_event_type2: 0
     condition_event_time2: 0
   - id: 16
-    type: 1
-    times: 1
+    event_type: 4
+    times: 2
+    is_repeat: 0
     description: 
     result_description: 
-    hp_consumption: 
+    hp_consumption: 0
+    hour_consumption: 0
     condition_event_type1: 0
-    condition_event_time1: 0
+    condition_event_time1: 1
     condition_event_type2: 0
     condition_event_time2: 0
   - id: 17
-    type: 1
-    times: 2
+    event_type: 4
+    times: 3
+    is_repeat: 0
     description: 
     result_description: 
-    hp_consumption: 
+    hp_consumption: 0
+    hour_consumption: 0
     condition_event_type1: 0
-    condition_event_time1: 0
+    condition_event_time1: 2
     condition_event_type2: 0
     condition_event_time2: 0
   - id: 18
-    type: 1
-    times: 3
+    event_type: 4
+    times: 4
+    is_repeat: 1
     description: 
     result_description: 
-    hp_consumption: 
+    hp_consumption: 0
+    hour_consumption: 0
     condition_event_type1: 0
-    condition_event_time1: 0
+    condition_event_time1: 3
     condition_event_type2: 0
     condition_event_time2: 0
   - id: 19
-    type: 1
+    event_type: 5
     times: 1
+    is_repeat: 0
     description: 
     result_description: 
-    hp_consumption: 
+    hp_consumption: 0
+    hour_consumption: 0
     condition_event_type1: 0
     condition_event_time1: 0
     condition_event_type2: 0
     condition_event_time2: 0
   - id: 20
-    type: 1
+    event_type: 5
     times: 2
+    is_repeat: 0
     description: 
     result_description: 
-    hp_consumption: 
+    hp_consumption: 0
+    hour_consumption: 0
     condition_event_type1: 0
-    condition_event_time1: 0
+    condition_event_time1: 1
     condition_event_type2: 0
     condition_event_time2: 0
   - id: 21
-    type: 1
+    event_type: 5
     times: 3
+    is_repeat: 0
     description: 
     result_description: 
-    hp_consumption: 
+    hp_consumption: 0
+    hour_consumption: 0
     condition_event_type1: 0
-    condition_event_time1: 0
+    condition_event_time1: 2
     condition_event_type2: 0
     condition_event_time2: 0
   - id: 22
-    type: 1
-    times: 0
+    event_type: 5
+    times: 4
+    is_repeat: 1
     description: 
     result_description: 
-    hp_consumption: 
+    hp_consumption: 0
+    hour_consumption: 0
     condition_event_type1: 0
-    condition_event_time1: 0
+    condition_event_time1: 3
     condition_event_type2: 0
     condition_event_time2: 0
   - id: 23
-    type: 1
-    times: 0
+    event_type: 6
+    times: 1
+    is_repeat: 0
     description: 
     result_description: 
-    hp_consumption: 
+    hp_consumption: 0
+    hour_consumption: 0
     condition_event_type1: 0
     condition_event_time1: 0
     condition_event_type2: 0
     condition_event_time2: 0
-  - id: 0
-    type: 0
-    times: 0
+  - id: 24
+    event_type: 6
+    times: 2
+    is_repeat: 0
     description: 
     result_description: 
-    hp_consumption: 
+    hp_consumption: 0
+    hour_consumption: 0
+    condition_event_type1: 0
+    condition_event_time1: 1
+    condition_event_type2: 0
+    condition_event_time2: 0
+  - id: 25
+    event_type: 6
+    times: 3
+    is_repeat: 0
+    description: 
+    result_description: 
+    hp_consumption: 0
+    hour_consumption: 0
+    condition_event_type1: 0
+    condition_event_time1: 2
+    condition_event_type2: 0
+    condition_event_time2: 0
+  - id: 26
+    event_type: 6
+    times: 4
+    is_repeat: 1
+    description: 
+    result_description: 
+    hp_consumption: 0
+    hour_consumption: 0
+    condition_event_type1: 0
+    condition_event_time1: 3
+    condition_event_type2: 0
+    condition_event_time2: 0
+  - id: 27
+    event_type: 7
+    times: 1
+    is_repeat: 0
+    description: 
+    result_description: 
+    hp_consumption: 0
+    hour_consumption: 0
     condition_event_type1: 0
     condition_event_time1: 0
     condition_event_type2: 0
     condition_event_time2: 0
-  - id: 0
-    type: 0
-    times: 0
+  - id: 28
+    event_type: 7
+    times: 2
+    is_repeat: 0
     description: 
     result_description: 
-    hp_consumption: 
+    hp_consumption: 0
+    hour_consumption: 0
     condition_event_type1: 0
-    condition_event_time1: 0
+    condition_event_time1: 1
     condition_event_type2: 0
     condition_event_time2: 0
-  - id: 0
-    type: 0
-    times: 0
+  - id: 29
+    event_type: 7
+    times: 3
+    is_repeat: 0
     description: 
     result_description: 
-    hp_consumption: 
+    hp_consumption: 0
+    hour_consumption: 0
+    condition_event_type1: 0
+    condition_event_time1: 2
+    condition_event_type2: 0
+    condition_event_time2: 0
+  - id: 30
+    event_type: 7
+    times: 4
+    is_repeat: 0
+    description: 
+    result_description: 
+    hp_consumption: 0
+    hour_consumption: 0
+    condition_event_type1: 0
+    condition_event_time1: 3
+    condition_event_type2: 0
+    condition_event_time2: 0
+  - id: 31
+    event_type: 7
+    times: 5
+    is_repeat: 0
+    description: 
+    result_description: 
+    hp_consumption: 0
+    hour_consumption: 0
+    condition_event_type1: 0
+    condition_event_time1: 4
+    condition_event_type2: 0
+    condition_event_time2: 0
+  - id: 32
+    event_type: 7
+    times: 6
+    is_repeat: 1
+    description: 
+    result_description: 
+    hp_consumption: 0
+    hour_consumption: 0
+    condition_event_type1: 0
+    condition_event_time1: 5
+    condition_event_type2: 0
+    condition_event_time2: 0
+  - id: 33
+    event_type: 0
+    times: 0
+    is_repeat: 0
+    description: 
+    result_description: 
+    hp_consumption: 0
+    hour_consumption: 0
     condition_event_type1: 0
     condition_event_time1: 0
     condition_event_type2: 0

@@ -57,6 +57,7 @@ public class TextBoxView : MonoBehaviour
     {
         var isSelectedArray = new bool[types.Length];
         isSelectedArray[0] = true;
+        for (var i = 1; i < types.Length; i++) isSelectedArray[i] = false;
         SetActiveFalseSelectPanel();
         return (types.Select(type => type.ToString()).ToArray(), isSelectedArray, interactables);
     }
@@ -69,8 +70,8 @@ public class TextBoxView : MonoBehaviour
         SetActiveFalseSelectPanel();
         for (var i = 0; i < texts.Length; i++)
         {
-            _selectPanels[i].Initialize(texts[i].ToString(), isSelectedArray[i], interactables[i]);
             _selectPanels[i].gameObject.SetActive(true);
+            _selectPanels[i].Initialize(texts[i].ToString(), isSelectedArray[i], interactables[i]);
         }
     }
 
