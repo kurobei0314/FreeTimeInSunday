@@ -27,7 +27,7 @@ public class TextBoxView : MonoBehaviour
         var interactables = new bool[_eventIconTypes.Length];
         _selectPanelNum = _eventIconTypes.Length;
         for (var i = 0; i < interactables.Length; i++) interactables[i] = true;
-        InitializeSelectPanels(GetSelectPanelsInfoArray(eventIconTypes, interactables));
+        InitializeSelectPanels(GetSelectPanelsInfoArray(eventIconTypes.Select(type => type.ToString()).ToArray(), interactables));
     }
 
     public void SetSelectableEvent(Func<EventIconType, SelectEventTypeDTO[]> getEventTypeAction)
@@ -38,8 +38,15 @@ public class TextBoxView : MonoBehaviour
         _selectPanelNum = _eventTypes.Length;
         var interactables = new bool[_eventTypes.Length];
         for (var i = 0; i < interactables.Length; i++) interactables[i] = true;
-        var info = GetSelectPanelsInfoArray(_eventTypes.Select(dto => dto.EventType).ToArray(), _eventTypes.Select(dto => dto.IsSelectable).ToArray());
+        var texts = _eventTypes.Select(dto => GetSelectableEventText(dto)).ToArray();
+        var info = GetSelectPanelsInfoArray(texts, _eventTypes.Select(dto => dto.IsSelectable).ToArray());
         InitializeSelectPanels(info);
+    }
+
+    private string GetSelectableEventText(SelectEventTypeDTO dto)
+    {
+        return dto.Num > 0 ? dto.EventType.ToString() + "+ <sprite name=HP>x" + dto.Num : 
+                             dto.EventType.ToString() + "- <sprite name=HP>x" + -1 * dto.Num;
     }
 
     public void ReturnSelectableEvent()
@@ -62,7 +69,7 @@ public class TextBoxView : MonoBehaviour
         _selectPanels[_selectIndex].SetFocusStatus(true);
     }
 
-    private (string[] textArray, bool[] isSelectedArray, bool[] interactables) GetSelectPanelsInfoArray<T>(T[] types, bool[] interactables) where T : Enum
+    private (string[] textArray, bool[] isSelectedArray, bool[] interactables) GetSelectPanelsInfoArray(string[] types, bool[] interactables)
     {
         var isSelectedArray = new bool[types.Length];
         isSelectedArray[0] = true;

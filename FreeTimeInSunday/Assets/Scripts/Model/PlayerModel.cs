@@ -47,6 +47,11 @@ public class PlayerModel
         var nextEventDTO = GetNextEventDTO(eventDTOs);
         return nextEventDTO.HPConsumption <= _hp; 
     }
+    public int GetHPConsumptionEventType(List<EventDTO> eventDTOs)
+    {
+        var nextEventDTO = GetNextEventDTO(eventDTOs);
+        return nextEventDTO.HPConsumption;
+    }
     private EventDTO GetNextEventDTO(List<EventDTO> eventDTOs)
     {
         var list = new List<EventDTO>();

@@ -22,7 +22,7 @@ public class MainPresenter
     public SelectEventTypeDTO[] GetEventTypes(EventIconType eventIconType)
     {
       var eventTypes = _eventIconDTOs.FirstOrDefault(dto => dto.EventIconType == eventIconType).EventTypes;
-      return eventTypes.Select(type => new SelectEventTypeDTO(type, _playerModel.IsSelectableEventType(_eventLookUp[type].ToList()))).ToArray();
+      return eventTypes.Select(type => new SelectEventTypeDTO(type, _playerModel.IsSelectableEventType(_eventLookUp[type].ToList()),  _playerModel.GetHPConsumptionEventType(_eventLookUp[type].ToList()))).ToArray();
     }
 
     public void UpdatePlayerModel(EventType eventType)
