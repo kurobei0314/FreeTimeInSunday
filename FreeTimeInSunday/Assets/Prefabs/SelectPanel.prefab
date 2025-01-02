@@ -140,7 +140,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: "\u4E00\u4EBA + <sprite name=HP>x2"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d3efbdef67f824b7f8e28262c91f5172, type: 2}
   m_sharedMaterial: {fileID: -4470484640902132619, guid: d3efbdef67f824b7f8e28262c91f5172, type: 2}
@@ -159,7 +159,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: 34c4dc76b5e4b4b1da9bf04376e5f788, type: 2}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901
@@ -276,7 +276,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u25BD"
+  m_text: "\u25BD\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d3efbdef67f824b7f8e28262c91f5172, type: 2}
   m_sharedMaterial: {fileID: -4470484640902132619, guid: d3efbdef67f824b7f8e28262c91f5172, type: 2}
@@ -295,7 +295,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: 34c4dc76b5e4b4b1da9bf04376e5f788, type: 2}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901
