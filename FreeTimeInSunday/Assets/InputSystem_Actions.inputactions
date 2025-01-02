@@ -215,7 +215,7 @@
                 {
                     "name": "",
                     "id": "36c1ebb7-0329-4f8f-bdac-e246884acf8b",
-                    "path": "<Keyboard>/delete",
+                    "path": "<Keyboard>/z",
                     "interactions": "Press",
                     "processors": "",
                     "groups": "",

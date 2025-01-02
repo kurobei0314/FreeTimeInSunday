@@ -13,7 +13,8 @@ public class MainView : MonoBehaviour, IUpdateMainViewDispatcher
     [SerializeField] private TextBoxView _textBoxView;
     [SerializeField] private TimeView _timeView;
     [SerializeField] private EventIconView[] _iconViews;
-    [SerializeField] private PlayableDirector _eventDirector;
+    [SerializeField] private PlayableDirector _eventStartDirector;
+    [SerializeField] private PlayableDirector _eventEndDirector;
     [SerializeField] private PlayableDirector _resultDirector;
 
     private SelectableEventIconViewModel _iconViewModels;
@@ -57,6 +58,7 @@ public class MainView : MonoBehaviour, IUpdateMainViewDispatcher
     #region InputSystem
     public void OnDecide(InputValue input)
     {
+        if (_mainStateViewModel == null) return;
         switch (_mainStateViewModel.state)
         {
             case MainStateViewModel.State.PlayerMove:
@@ -68,11 +70,15 @@ public class MainView : MonoBehaviour, IUpdateMainViewDispatcher
             case MainStateViewModel.State.DecideEvent:
                 OnDecideForDecideEventState();
                 break;
+            case MainStateViewModel.State.Event:
+                OnDecideEventState();
+                break;
         }
     }
 
     public void OnUp()
     {
+        if (_mainStateViewModel == null) return;
         switch (_mainStateViewModel.state)
         {
             case MainStateViewModel.State.DecideEventIcon:
@@ -83,6 +89,7 @@ public class MainView : MonoBehaviour, IUpdateMainViewDispatcher
     }
     public void OnDown()
     {
+        if (_mainStateViewModel == null) return;
         switch (_mainStateViewModel.state)
         {
             case MainStateViewModel.State.DecideEventIcon:
@@ -93,6 +100,7 @@ public class MainView : MonoBehaviour, IUpdateMainViewDispatcher
     }
     public void OnCancel()
     {
+        if (_mainStateViewModel == null) return;
         switch (_mainStateViewModel.state)
         {
             case MainStateViewModel.State.DecideEventIcon:
@@ -105,6 +113,7 @@ public class MainView : MonoBehaviour, IUpdateMainViewDispatcher
 
     public void OnMove(InputValue input)
     {
+        if (_mainStateViewModel == null) return;
         switch (_mainStateViewModel.state)
         {
             case MainStateViewModel.State.PlayerMove:
@@ -137,9 +146,19 @@ public class MainView : MonoBehaviour, IUpdateMainViewDispatcher
         });
     }
 
+    private void OnDecideEventState()
+    {
+        _eventEndDirector.Play();
+    }
+
+    #region TimelineHandler
+    public void SetPlayerMoveState()
+        => _mainStateViewModel.SetState(MainStateViewModel.State.PlayerMove);
+    #endregion
+
     void IUpdateMainViewDispatcher.UpdateViewByDecideEvent(SelectedEventResultViewModel resultViewModel)
     {
-        _eventDirector.Play();
+        _eventStartDirector.Play();
         _playerHPView.Initialize(resultViewModel.AfterHP);
         _textBoxView.SetDescriptionText(resultViewModel.Description);
         _timeView.Initialize(resultViewModel.AfterElapsedTime);
