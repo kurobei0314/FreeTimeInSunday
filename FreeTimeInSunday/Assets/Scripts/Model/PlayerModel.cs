@@ -30,6 +30,7 @@ public class PlayerModel
         if (nextEventDTO == null) return null;
         AddHP(nextEventDTO.HPConsumption);
         AddElapsedTime(nextEventDTO.HourConsumption);
+        _happenedEventId.Add(nextEventDTO.Id);
         return new SelectedEventResultViewModel(_hp, _elapsedTime, nextEventDTO.Description, nextEventDTO.ResultDescription, IsFinishDay());
     }
 
