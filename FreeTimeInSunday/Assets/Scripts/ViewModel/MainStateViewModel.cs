@@ -5,6 +5,7 @@ public class MainStateViewModel
       PlayerMove,
       DecideEventIcon,
       DecideEvent,
+      SelectCannotSelectPanel,
       Event,
       Result
     }

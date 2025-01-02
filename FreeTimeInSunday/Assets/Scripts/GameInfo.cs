@@ -8,4 +8,5 @@ public class GameInfo
     public const string SelectableEventIconTypeTitleText = "どこにいこうか";
     public const string SelectableEventTypeTitleText = "なにをしようか";
     public const string DayResultEmptyText = "今日はのんびり過ごした";
+    public const string CannotSelectPanel = "今は疲れてできなそうだ....";
 }

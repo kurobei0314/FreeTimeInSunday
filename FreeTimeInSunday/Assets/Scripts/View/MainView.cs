@@ -73,6 +73,9 @@ public class MainView : MonoBehaviour, IUpdateMainViewDispatcher
             case MainStateViewModel.State.Event:
                 OnDecideEventState();
                 break;
+            case MainStateViewModel.State.SelectCannotSelectPanel:
+                OnDecideForCannotSelectPanelState();
+                break;
         }
     }
 
@@ -140,15 +143,27 @@ public class MainView : MonoBehaviour, IUpdateMainViewDispatcher
     private void OnDecideForDecideEventState()
     {
         _mainStateViewModel.SetState(MainStateViewModel.State.Event);
-        _textBoxView.DecideEvent((selectEventType) =>
+        _textBoxView.DecideEvent((selectEventTypeDTO) =>
         {
-            _decideEventAction.Invoke(selectEventType);
+            if (selectEventTypeDTO.IsSelectable)
+            {
+                _decideEventAction.Invoke(selectEventTypeDTO.EventType);
+                return;
+            }
+            _textBoxView.SetDescriptionText(GameInfo.CannotSelectPanel);
+            _mainStateViewModel.SetState(MainStateViewModel.State.SelectCannotSelectPanel);
         });
     }
 
     private void OnDecideEventState()
     {
         _eventEndDirector.Play();
+    }
+
+    private void OnDecideForCannotSelectPanelState()
+    {
+        _textBoxView.ReturnSelectableEvent();
+        _mainStateViewModel.SetState(MainStateViewModel.State.DecideEvent);
     }
 
     #region TimelineHandler

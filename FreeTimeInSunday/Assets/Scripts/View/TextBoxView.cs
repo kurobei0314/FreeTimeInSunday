@@ -10,6 +10,7 @@ public class TextBoxView : MonoBehaviour
     private int _selectIndex; 
     private EventIconType[] _eventIconTypes;
     private SelectEventTypeDTO[] _eventTypes;
+    private int _selectPanelNum;
 
     public void SetDescriptionText(string descriptionText)
     {
@@ -24,6 +25,7 @@ public class TextBoxView : MonoBehaviour
         _eventIconTypes = eventIconTypes;
         _text.text = GameInfo.SelectableEventIconTypeTitleText;
         var interactables = new bool[_eventIconTypes.Length];
+        _selectPanelNum = _eventIconTypes.Length;
         for (var i = 0; i < interactables.Length; i++) interactables[i] = true;
         InitializeSelectPanels(GetSelectPanelsInfoArray(eventIconTypes, interactables));
     }
@@ -33,14 +35,21 @@ public class TextBoxView : MonoBehaviour
         _eventTypes = getEventTypeAction(_eventIconTypes[_selectIndex]);
         _selectIndex = 0;
         _text.text = GameInfo.SelectableEventTypeTitleText;
+        _selectPanelNum = _eventTypes.Length;
         var interactables = new bool[_eventTypes.Length];
         for (var i = 0; i < interactables.Length; i++) interactables[i] = true;
         var info = GetSelectPanelsInfoArray(_eventTypes.Select(dto => dto.EventType).ToArray(), _eventTypes.Select(dto => dto.IsSelectable).ToArray());
         InitializeSelectPanels(info);
     }
 
-    public void DecideEvent(Action<EventType> updateViewAction)
-        => updateViewAction.Invoke(_eventTypes[_selectIndex].EventType);
+    public void ReturnSelectableEvent()
+    {
+        _text.text = GameInfo.SelectableEventTypeTitleText;
+        SetActiveTrueSelectPanel();
+    }
+
+    public void DecideEvent(Action<SelectEventTypeDTO> updateViewAction)
+        => updateViewAction.Invoke(_eventTypes[_selectIndex]);
 
     public void SetActiveTextBox(bool isActive)
         => this.gameObject.SetActive(isActive);
@@ -83,6 +92,11 @@ public class TextBoxView : MonoBehaviour
             if (_selectPanels[i].gameObject.activeSelf) num++;
         }
         return num;
+    }
+
+    private void SetActiveTrueSelectPanel()
+    {
+        for (var i = 0; i <_selectPanelNum; i++) _selectPanels[i].gameObject.SetActive(true);
     }
 
     public void SetActiveFalseSelectPanel()
