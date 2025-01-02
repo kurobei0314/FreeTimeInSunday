@@ -40,7 +40,7 @@ public class PlayerModel
         => _elapsedTime += value;
 
     public bool IsFinishDay()
-        => _elapsedTime >= GameInfo.DayTime;
+        => _elapsedTime >= GameInfo.DayHour;
 
     public bool IsSelectableEventType(List<EventDTO> eventDTOs)
     {
