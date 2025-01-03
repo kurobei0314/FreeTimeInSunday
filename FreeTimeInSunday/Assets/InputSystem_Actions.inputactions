@@ -198,6 +198,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Twitter",
+                    "type": "Button",
+                    "id": "1bb9d04f-3cf4-424e-8d83-308f3cfcb4d2",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -343,6 +352,17 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "d890264d-73b1-4d16-a0ce-51b866ce049e",
+                    "path": "<Keyboard>/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Twitter",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

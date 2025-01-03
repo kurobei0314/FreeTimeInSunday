@@ -7,7 +7,8 @@ public class MainStateViewModel
       DecideEvent,
       SelectCannotSelectPanel,
       Event,
-      Result
+      Result,
+      Animation,
     }
 
     private  State _state;

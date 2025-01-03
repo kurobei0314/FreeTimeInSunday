@@ -134,6 +134,17 @@ public class MainView : MonoBehaviour, IUpdateMainViewDispatcher
                 break;
         }
     }
+
+    public void OnTwitter()
+    {
+        if (_mainStateViewModel == null) return;
+        switch (_mainStateViewModel.state)
+        {
+            case MainStateViewModel.State.Result:
+                naichilab.UnityRoomTweet.Tweet ("freetimeinsunday", "日曜日を楽しく過ごした", "unityroom", "unity1week", "予定のない日曜日。");
+                break;
+        }
+    }
     #endregion
 
     private void OnDecideForPlayerMoveState()
@@ -151,7 +162,6 @@ public class MainView : MonoBehaviour, IUpdateMainViewDispatcher
 
     private void OnDecideForDecideEventState()
     {
-        _mainStateViewModel.SetState(MainStateViewModel.State.Event);
         _textBoxView.DecideEvent((selectEventTypeDTO) =>
         {
             if (selectEventTypeDTO.IsSelectable)
@@ -166,6 +176,7 @@ public class MainView : MonoBehaviour, IUpdateMainViewDispatcher
 
     private void OnDecideEventState()
     {
+        _mainStateViewModel.SetState(MainStateViewModel.State.Animation);
         _eventEndDirector.Play();
     }
 
@@ -176,6 +187,14 @@ public class MainView : MonoBehaviour, IUpdateMainViewDispatcher
     }
 
     #region TimelineHandler
+    public void UpdateStateForStartEventAnimation()
+    {
+        _mainStateViewModel.SetState(MainStateViewModel.State.Event);
+    }
+    public void UpdateStateForStartResultAnimation()
+    {
+        _mainStateViewModel.SetState(MainStateViewModel.State.Result);
+    }
     public void UpdateForAnimationEnd()
     {
         _playerHPView.Initialize(_selectedEventResultViewModel.AfterHP);
@@ -184,8 +203,8 @@ public class MainView : MonoBehaviour, IUpdateMainViewDispatcher
         if (_selectedEventResultViewModel.IsPassedDay) 
         {
             _dayResultView.Initialize(_dayResultViewModel);
+            _mainStateViewModel.SetState(MainStateViewModel.State.Animation);
             _resultDirector.Play();
-            _mainStateViewModel.SetState(MainStateViewModel.State.Result);
             return;
         }
         _mainStateViewModel.SetState(MainStateViewModel.State.PlayerMove);
@@ -200,11 +219,13 @@ public class MainView : MonoBehaviour, IUpdateMainViewDispatcher
 
     private void OnDecideForResultState()
     {
+        _mainStateViewModel.SetState(MainStateViewModel.State.Animation);
         _resultEndDirector.Play();
     }
 
     void IUpdateMainViewDispatcher.UpdateViewByDecideEvent(SelectedEventResultViewModel resultViewModel)
     {
+        _mainStateViewModel.SetState(MainStateViewModel.State.Animation);
         _eventStartDirector.Play();
         _selectedEventResultViewModel = resultViewModel;
         _textBoxView.SetDescriptionText(_selectedEventResultViewModel.Description);
