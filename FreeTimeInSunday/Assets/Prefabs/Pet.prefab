@@ -180,8 +180,8 @@ RectTransform:
   m_GameObject: {fileID: 6826068626731016955}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1.6}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2937750520091980464}
   - {fileID: 2454532166668473891}
@@ -202,7 +202,7 @@ Animator:
   m_GameObject: {fileID: 6826068626731016955}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 61c48e5a548f446588fa492d50060cce, type: 2}
+  m_Controller: {fileID: 9100000, guid: f5c96f49b83a840e5b4ce4584028b458, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -226,7 +226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d0900dbf42334d65a7817846239eb61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventIconType: 4
+  _eventIconType: 5
   _animator: {fileID: 4970854165372194200}
 --- !u!222 &597358958881675602
 CanvasRenderer:

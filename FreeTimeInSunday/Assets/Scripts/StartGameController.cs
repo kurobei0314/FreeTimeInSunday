@@ -7,6 +7,9 @@ using System.Collections.Generic;
 public class StartGameController : MonoBehaviour
 {
     [SerializeField] private MainView _mainView;
+    [SerializeField] private EventVODataStore _eventVODataStore;
+    [SerializeField] private EventIconVODataStore _eventIconVODataStore;
+
     void Start()
     {
         var services = new ServiceCollection();
@@ -27,9 +30,11 @@ public class StartGameController : MonoBehaviour
 
     private void LoadMaster(Action<ILookup<EventType, EventDTO>, List<EventIconDTO>> callback)
     {
+        var eventDTOs = _eventVODataStore.Items.Select(vo => new EventDTO(vo)).ToList();
+        var eventIconDTO = _eventIconVODataStore.Items.Select(vo => new EventIconDTO(vo)).ToList();
         var masterImport = new MasterImportRepository();
-        var _ = masterImport.LoadEventDTOs((eventDTO, eventIconDTO) => {
-            callback(eventDTO.ToLookup(dto => dto.EventType), eventIconDTO);
-        });
+        // var _ = masterImport.LoadEventDTOs((eventDTO, eventIconDTO) => {
+        callback(eventDTOs.ToLookup(dto => dto.EventType), eventIconDTO);
+        // });
     }
 }

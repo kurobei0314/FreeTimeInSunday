@@ -121,6 +121,7 @@ public class MainView : MonoBehaviour, IUpdateMainViewDispatcher
         {
             case MainStateViewModel.State.DecideEventIcon:
             case MainStateViewModel.State.DecideEvent:
+                AudioManager.Instance.PlaySE("Cancel");
                 _textBoxView.SetActiveTextBox(false);
                 _mainStateViewModel.SetState(MainStateViewModel.State.PlayerMove);
                 break;  
@@ -141,13 +142,13 @@ public class MainView : MonoBehaviour, IUpdateMainViewDispatcher
 
     public void OnTwitter()
     {
-        if (_mainStateViewModel == null) return;
-        switch (_mainStateViewModel.state)
-        {
-            case MainStateViewModel.State.Result:
-                naichilab.UnityRoomTweet.Tweet ("freetimeinsunday", "日曜日を楽しく過ごした", "unityroom", "unity1week", "予定のない日曜日。");
-                break;
-        }
+        // if (_mainStateViewModel == null) return;
+        // switch (_mainStateViewModel.state)
+        // {
+        //     case MainStateViewModel.State.Result:
+        //         naichilab.UnityRoomTweet.Tweet ("freetimeinsunday", "日曜日を楽しく過ごした", "unityroom", "unity1week", "予定のない日曜日。");
+        //         break;
+        // }
     }
     #endregion
 
