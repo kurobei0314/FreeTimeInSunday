@@ -43,6 +43,7 @@ public class MainView : MonoBehaviour, IUpdateMainViewDispatcher
         _iconViewModels = new SelectableEventIconViewModel();
         _mainStateViewModel = new MainStateViewModel();
         _dayResultViewModel = new DayResultViewModel();
+        AudioManager.Instance.PlayBGM("BGM");
 
         _playerView.OnTriggerEnter2DAsObservable().Where(col => col.gameObject.tag == "EventIcon")
         .Subscribe(col => 
@@ -65,6 +66,7 @@ public class MainView : MonoBehaviour, IUpdateMainViewDispatcher
     public void OnDecide(InputValue input)
     {
         if (_mainStateViewModel == null) return;
+        AudioManager.Instance.PlaySE("DecideSE");
         switch (_mainStateViewModel.state)
         {
             case MainStateViewModel.State.PlayerMove:
@@ -96,6 +98,7 @@ public class MainView : MonoBehaviour, IUpdateMainViewDispatcher
             case MainStateViewModel.State.DecideEventIcon:
             case MainStateViewModel.State.DecideEvent:
                 _textBoxView.SetNextFocusSelection(-1);
+                AudioManager.Instance.PlaySE("UP_DownSE");
                 break;
         }
     }
@@ -107,6 +110,7 @@ public class MainView : MonoBehaviour, IUpdateMainViewDispatcher
             case MainStateViewModel.State.DecideEventIcon:
             case MainStateViewModel.State.DecideEvent:
                 _textBoxView.SetNextFocusSelection(1);
+                AudioManager.Instance.PlaySE("UP_DownSE");
                 break;
         }
     }
@@ -207,6 +211,7 @@ public class MainView : MonoBehaviour, IUpdateMainViewDispatcher
             _resultDirector.Play();
             return;
         }
+        AudioManager.Instance.PlaySE("Time");
         _mainStateViewModel.SetState(MainStateViewModel.State.PlayerMove);
     }
 
