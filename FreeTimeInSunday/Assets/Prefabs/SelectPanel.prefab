@@ -140,7 +140,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u4E00\u4EBA + <sprite name=HP>x2"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d3efbdef67f824b7f8e28262c91f5172, type: 2}
   m_sharedMaterial: {fileID: -4470484640902132619, guid: d3efbdef67f824b7f8e28262c91f5172, type: 2}

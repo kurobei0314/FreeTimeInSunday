@@ -16,12 +16,14 @@ public class MainView : MonoBehaviour, IUpdateMainViewDispatcher
     [SerializeField] private PlayableDirector _eventStartDirector;
     [SerializeField] private PlayableDirector _eventEndDirector;
     [SerializeField] private PlayableDirector _resultDirector;
+    [SerializeField] private DayResultView _dayResultView;
 
     private SelectableEventIconViewModel _iconViewModels;
     private MainStateViewModel _mainStateViewModel;
     private DayResultViewModel _dayResultViewModel;
     private Func<EventIconType, SelectEventTypeDTO[]> _getEventTypeAction;
     private Action<EventType> _decideEventAction;
+    private SelectedEventResultViewModel _selectedEventResultViewModel;
 
     public void Initialize( int elapsedTime,
                             Func<EventIconType, SelectEventTypeDTO[]> getEventTypeAction,
@@ -167,18 +169,27 @@ public class MainView : MonoBehaviour, IUpdateMainViewDispatcher
     }
 
     #region TimelineHandler
-    public void SetPlayerMoveState()
-        => _mainStateViewModel.SetState(MainStateViewModel.State.PlayerMove);
+    public void UpdateForAnimationEnd()
+    {
+        _playerHPView.Initialize(_selectedEventResultViewModel.AfterHP);
+        _textBoxView.SetDescriptionText(_selectedEventResultViewModel.Description);
+        _timeView.Initialize(_selectedEventResultViewModel.AfterElapsedTime);
+        _dayResultViewModel.AddResultText(_selectedEventResultViewModel.ResultDescription);
+        if (_selectedEventResultViewModel.IsPassedDay) 
+        {
+            _dayResultView.Initialize(_dayResultViewModel);
+            _resultDirector.Play();
+            _mainStateViewModel.SetState(MainStateViewModel.State.Result);
+            return;
+        }
+        _mainStateViewModel.SetState(MainStateViewModel.State.PlayerMove);
+    }
     #endregion
 
     void IUpdateMainViewDispatcher.UpdateViewByDecideEvent(SelectedEventResultViewModel resultViewModel)
     {
         _eventStartDirector.Play();
-        _playerHPView.Initialize(resultViewModel.AfterHP);
-        _textBoxView.SetDescriptionText(resultViewModel.Description);
-        _timeView.Initialize(resultViewModel.AfterElapsedTime);
-        _dayResultViewModel.AddResultText(resultViewModel.ResultDescription);
-        // TODO: 再生し終わった時に、1日が終わったかどうかをみて終わってたらanimationを再生するようにする
+        _selectedEventResultViewModel = resultViewModel;
     }
 
     public void Dispose()

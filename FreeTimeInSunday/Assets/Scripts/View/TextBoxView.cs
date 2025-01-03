@@ -45,8 +45,8 @@ public class TextBoxView : MonoBehaviour
 
     private string GetSelectableEventText(SelectEventTypeDTO dto)
     {
-        return dto.Num > 0 ? dto.EventType.ToString() + "+ <sprite name=HP>x" + dto.Num : 
-                             dto.EventType.ToString() + "- <sprite name=HP>x" + -1 * dto.Num;
+        return dto.Num > 0 ? dto.EventType.ToString() + "  + <sprite name=HP>x" + dto.Num : 
+                             dto.EventType.ToString() + "  - <sprite name=HP>x" + -1 * dto.Num;
     }
 
     public void ReturnSelectableEvent()
