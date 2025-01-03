@@ -179,7 +179,6 @@ public class MainView : MonoBehaviour, IUpdateMainViewDispatcher
     public void UpdateForAnimationEnd()
     {
         _playerHPView.Initialize(_selectedEventResultViewModel.AfterHP);
-        _textBoxView.SetDescriptionText(_selectedEventResultViewModel.Description);
         _timeView.Initialize(_selectedEventResultViewModel.AfterElapsedTime);
         _dayResultViewModel.AddResultText(_selectedEventResultViewModel.ResultDescription);
         if (_selectedEventResultViewModel.IsPassedDay) 
@@ -191,7 +190,7 @@ public class MainView : MonoBehaviour, IUpdateMainViewDispatcher
         }
         _mainStateViewModel.SetState(MainStateViewModel.State.PlayerMove);
     }
-    
+
     public void UpdateForResultEndAnimationEnd()
     {
         _refreshElapsedTime();
@@ -208,6 +207,7 @@ public class MainView : MonoBehaviour, IUpdateMainViewDispatcher
     {
         _eventStartDirector.Play();
         _selectedEventResultViewModel = resultViewModel;
+        _textBoxView.SetDescriptionText(_selectedEventResultViewModel.Description);
     }
 
     void IUpdateMainViewDispatcher.UpdateRefreshTime(int refreshTime)
