@@ -140,17 +140,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: "\u673A"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d3efbdef67f824b7f8e28262c91f5172, type: 2}
-  m_sharedMaterial: {fileID: -4470484640902132619, guid: d3efbdef67f824b7f8e28262c91f5172, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3652936fc500e412e96ebd99821869c5, type: 2}
+  m_sharedMaterial: {fileID: 8397207555783260971, guid: 3652936fc500e412e96ebd99821869c5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_fontColor: {r: 0.32941177, g: 0.32941177, b: 0.32941177, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -173,7 +173,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -278,8 +278,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u25BD\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d3efbdef67f824b7f8e28262c91f5172, type: 2}
-  m_sharedMaterial: {fileID: -4470484640902132619, guid: d3efbdef67f824b7f8e28262c91f5172, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3652936fc500e412e96ebd99821869c5, type: 2}
+  m_sharedMaterial: {fileID: 8397207555783260971, guid: 3652936fc500e412e96ebd99821869c5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

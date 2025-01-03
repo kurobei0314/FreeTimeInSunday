@@ -35,7 +35,11 @@ public class PlayerModel
     }
 
     private void AddHP(int value)
-        => _hp += value;
+    {
+        if (_hp + value < 0) _hp = 0;
+        else if (_hp + value > GameInfo.PlayerHP) _hp = GameInfo.PlayerHP;
+        else _hp += value;
+    }
     private void AddElapsedTime(int value)
         => _elapsedTime += value;
 
@@ -48,7 +52,9 @@ public class PlayerModel
     public bool IsSelectableEventType(List<EventDTO> eventDTOs)
     {
         var nextEventDTO = GetNextEventDTO(eventDTOs);
-        return nextEventDTO.HPConsumption <= _hp; 
+        if (nextEventDTO.HPConsumption >= 0) return true;
+        if ( -1 * nextEventDTO.HPConsumption <= _hp) return true;
+        return false;
     }
     public int GetHPConsumptionEventType(List<EventDTO> eventDTOs)
     {
