@@ -16,6 +16,7 @@ public class MainView : MonoBehaviour, IUpdateMainViewDispatcher
     [SerializeField] private PlayableDirector _eventStartDirector;
     [SerializeField] private PlayableDirector _eventEndDirector;
     [SerializeField] private PlayableDirector _resultDirector;
+    [SerializeField] private PlayableDirector _resultEndDirector;
     [SerializeField] private DayResultView _dayResultView;
 
     private SelectableEventIconViewModel _iconViewModels;
@@ -23,14 +24,17 @@ public class MainView : MonoBehaviour, IUpdateMainViewDispatcher
     private DayResultViewModel _dayResultViewModel;
     private Func<EventIconType, SelectEventTypeDTO[]> _getEventTypeAction;
     private Action<EventType> _decideEventAction;
+    private Action _refreshElapsedTime;
     private SelectedEventResultViewModel _selectedEventResultViewModel;
 
     public void Initialize( int elapsedTime,
                             Func<EventIconType, SelectEventTypeDTO[]> getEventTypeAction,
-                            Action<EventType> decideEventAction) 
+                            Action<EventType> decideEventAction,
+                            Action refreshElapsedTime) 
     {
         _getEventTypeAction = getEventTypeAction;
         _decideEventAction = decideEventAction;
+        _refreshElapsedTime = refreshElapsedTime;
 
         _textBoxView.SetActiveFalseSelectPanel();
         _timeView.Initialize(elapsedTime);
@@ -77,6 +81,9 @@ public class MainView : MonoBehaviour, IUpdateMainViewDispatcher
                 break;
             case MainStateViewModel.State.SelectCannotSelectPanel:
                 OnDecideForCannotSelectPanelState();
+                break;
+            case MainStateViewModel.State.Result:
+                OnDecideForResultState();
                 break;
         }
     }
@@ -184,12 +191,28 @@ public class MainView : MonoBehaviour, IUpdateMainViewDispatcher
         }
         _mainStateViewModel.SetState(MainStateViewModel.State.PlayerMove);
     }
+    
+    public void UpdateForResultEndAnimationEnd()
+    {
+        _refreshElapsedTime();
+        _mainStateViewModel.SetState(MainStateViewModel.State.PlayerMove);
+    }
     #endregion
+
+    private void OnDecideForResultState()
+    {
+        _resultEndDirector.Play();
+    }
 
     void IUpdateMainViewDispatcher.UpdateViewByDecideEvent(SelectedEventResultViewModel resultViewModel)
     {
         _eventStartDirector.Play();
         _selectedEventResultViewModel = resultViewModel;
+    }
+
+    void IUpdateMainViewDispatcher.UpdateRefreshTime(int refreshTime)
+    {
+        _timeView.Initialize(refreshTime);
     }
 
     public void Dispose()

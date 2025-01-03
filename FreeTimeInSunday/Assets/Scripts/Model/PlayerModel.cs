@@ -42,6 +42,9 @@ public class PlayerModel
     public bool IsFinishDay()
         => _elapsedTime >= GameInfo.DayHour;
 
+    public int RefreshElapsedTime()
+        => _elapsedTime = 0;
+
     public bool IsSelectableEventType(List<EventDTO> eventDTOs)
     {
         var nextEventDTO = GetNextEventDTO(eventDTOs);

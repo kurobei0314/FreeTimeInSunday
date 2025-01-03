@@ -30,5 +30,7 @@ public class MainPresenter
       var dto = _playerModel.UpdateBySelectedEvent(_eventLookUp[eventType].ToList());
       _dispatcher.UpdateViewByDecideEvent(dto);
     }
-    
+
+    public void RefreshElapsedTime()
+      => _dispatcher.UpdateRefreshTime(_playerModel.RefreshElapsedTime());
 }

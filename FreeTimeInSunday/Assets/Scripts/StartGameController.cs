@@ -20,7 +20,8 @@ public class StartGameController : MonoBehaviour
             var mainPresenter = new MainPresenter(eventDTOLookup, eventIconDTO, playerModel, _mainView);
             _mainView.Initialize( playerModel.ElapsedTime,
                                  (iconType) => mainPresenter.GetEventTypes(iconType), 
-                                 (eventType) => mainPresenter.UpdatePlayerModel(eventType));
+                                 (eventType) => mainPresenter.UpdatePlayerModel(eventType),
+                                 () => mainPresenter.RefreshElapsedTime());
         });
     }
 
