@@ -31,6 +31,7 @@ public class PlayerModel
         AddHP(nextEventDTO.HPConsumption);
         AddElapsedTime(nextEventDTO.HourConsumption);
         _happenedEventId.Add(nextEventDTO.Id);
+        _eventTimeDic[nextEventDTO.EventType] += 1;
         return new SelectedEventResultViewModel(_hp, _elapsedTime, nextEventDTO.Description, nextEventDTO.ResultDescription, IsFinishDay());
     }
 
